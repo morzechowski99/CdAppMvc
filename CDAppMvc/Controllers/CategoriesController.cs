@@ -2,7 +2,7 @@
 using CDAppMvc.DAL;
 using CDAppMvc.Enums;
 using CDAppMvc.Extensions;
-using CDAppMvc.ViewModels;
+using CDAppMvc.ViewModels.Categories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

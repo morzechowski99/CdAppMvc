@@ -1,0 +1,53 @@
+﻿@using CDAppMvc.Enums
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<div class="row d-flex justify-content-between" id="filters">
+    <div class="col-sm-12 col-md-3 ">
+        <div class="input-group my-2">
+            <input type="text" class="form-control" id="nameInput" placeholder="Name"/>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-3 ">
+        <div class="input-group my-2">
+            <input type="text" class="form-control" id="descriptionInput" placeholder="Description"/>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-3 ">
+        <div class="input-group my-2">
+            <input class="form-control" type="number" min="1900" max="2099" step="1" id="releaseYearFromInput" placeholder="Released after" />
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-3 ">
+        <div class="input-group my-2">
+            <input class="form-control" type="number" min="1900" max="2099" step="1" id="releaseYearToInput" placeholder="Released before" />
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-4">
+        <div class="input-group my-2">
+            <select class="form-control" id="sortSelect">
+                <option selected value="0">Sort...</option>
+                <option value="1">Oldest</option>
+                <option value="2">Newest</option>
+                <option value="3">Name ASC</option>
+                <option value="4">Name DESC</option>
+            </select>
+        </div>
+    </div>
+</div>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div class="spinner spinner-border spinnerHidden text-primary"></div>
+<div id="table" style="min-height:300px">
+    @await Component.InvokeAsync("AlbumsList", new CDAppMvc.ViewModels.Albums.AlbumsListFilters() { SortOrder = AlbumsSortOrder.Default })
+</div>
+
+@section Scripts
+{
+    <script src="js/Views/Albums/Index.js"></script>
+}

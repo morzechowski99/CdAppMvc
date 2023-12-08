@@ -18,4 +18,6 @@ public class Category
     public required string OwnerId { get; set; }
 
     public virtual IdentityUser? Owner { get; set; }
+
+    public virtual ICollection<Album>? Albums { get; set; }
 }

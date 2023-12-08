@@ -1,0 +1,100 @@
+﻿@model CDAppMvc.ViewModels.PagedList<CDAppMvc.ViewModels.Albums.AlbumListItemViewModel>
+
+<div class="d-flex justify-content-between row">
+    <div class="col-sm-12 col-md-6 m-2">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn @(Model.PageSize == 10 ? "btn-primary" : "btn-outline-primary") changePageSize" value="10">10</button>
+            <button type="button" class="btn @(Model.PageSize == 25 ? "btn-primary" : "btn-outline-primary") changePageSize" value="25">25</button>
+            <button type="button" class="btn @(Model.PageSize == 50 ? "btn-primary" : "btn-outline-primary") changePageSize" value="50">50</button>
+            <button type="button" class="btn @(Model.PageSize == 100 ? "btn-primary" : "btn-outline-primary") changePageSize" value="100">100</button>
+        </div>
+    </div>
+    <div class="col d-flex justify-content-end m-2">
+        <ul class="pagination ">
+            <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")">
+                <a href="#" class="page-link prevPageBtn">Previous</a>
+            </li>
+
+            <li class="page-item"><input type="number" min="1" max="@Model.TotalPages" class="form-control" value="@Model.CurrentPage" id="pageValue2" /></li>
+            <li class="page-item ">
+                <a class="page-link" href="#" id="changePageBtn2">Go</a>
+            </li>
+            <li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : "") ">
+                <a class="page-link nextPageBtn" href="#">Next</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].Author)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].ReleaseYear)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].Category)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReleaseYear)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category)
+                    </td>
+                    <td>
+                        <a asp-controller="Albums" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a asp-controller="Albums" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a asp-controller="Albums" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="d-flex justify-content-between mt-2 row">
+    <div class="col-sm-12 col-md-6 m-2">
+        You are on page @Model.CurrentPage of @Model.TotalPages
+    </div>
+    <div class="col d-flex justify-content-end m-2">
+        <ul class="pagination">
+            <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "") prevPageBtn">
+                <a href="#" class="page-link">Previous</a>
+            </li>
+
+            <li class="page-item"><input type="number" min="1" max="@Model.TotalPages" class="form-control" value="@Model.CurrentPage" id="pageValue1" /></li>
+            <li class="page-item ">
+                <a class="page-link" id="changePageBtn1" href="#">Go</a>
+            </li>
+            <li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : "")">
+                <a class="page-link nextPageBtn" href="#">Next</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var currentPage = @Model.CurrentPage;
+    var totalPages = @Model.TotalPages;
+    var pageSize = @Model.PageSize;
+</script>

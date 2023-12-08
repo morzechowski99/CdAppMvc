@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CDAppMvc.ViewModels;
+namespace CDAppMvc.ViewModels.Categories;
 
 public class CreateUpdateCategoryViewModel
 {

@@ -2,7 +2,7 @@
 using CDAppMvc.DAL;
 using CDAppMvc.Enums;
 using CDAppMvc.Mapping;
-using CDAppMvc.ViewModels;
+using CDAppMvc.ViewModels.Categories;
 using Microsoft.EntityFrameworkCore;
 
 namespace CDAppMvc.Services;

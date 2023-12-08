@@ -1,10 +1,9 @@
-﻿namespace CDAppMvc.ViewModels;
+﻿namespace CDAppMvc.ViewModels.Categories;
 
-public class CategoryDetailsViewModel
+public class CategoryListItemViewModel
 {
     public int Id { get; set; }
     public required string Name { get; set; }
     public string? Description { get; set; }
     public required string OwnerId { get; set; }
-    public required string Owner { get; set; }
 }

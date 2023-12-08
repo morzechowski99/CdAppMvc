@@ -25,6 +25,8 @@ namespace CDAppMvc
 
             builder.Services.AddScoped<ICategoriesService, CategoriesService>();
             builder.Services.AddScoped<CategoryMapper>();
+            builder.Services.AddScoped<AlbumMapper>();
+            builder.Services.AddScoped<IAlbumsService, AlbumsService>();
 
             var app = builder.Build();
 

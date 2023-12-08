@@ -20,3 +20,17 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/*spinner*/
+.spinner {
+    width: 5rem;
+    height: 5rem;
+    position: fixed;
+    top: calc(50% - 2.5rem);
+    left: calc(50% - 2.5rem);
+    z-index: 99999;
+}
+
+.spinnerHidden {
+    display: none !important;
+}

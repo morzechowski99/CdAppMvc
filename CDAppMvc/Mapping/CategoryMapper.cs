@@ -1,5 +1,5 @@
 ﻿using CDAppMvc.DAL.DbModels;
-using CDAppMvc.ViewModels;
+using CDAppMvc.ViewModels.Categories;
 using Riok.Mapperly.Abstractions;
 
 namespace CDAppMvc.Mapping;

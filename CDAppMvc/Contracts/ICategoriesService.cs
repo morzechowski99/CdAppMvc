@@ -1,5 +1,5 @@
 ﻿using CDAppMvc.Enums;
-using CDAppMvc.ViewModels;
+using CDAppMvc.ViewModels.Categories;
 
 namespace CDAppMvc.Contracts;
 
