@@ -1,4 +1,7 @@
-using CDAppMvc.Data;
+using CDAppMvc.Contracts;
+using CDAppMvc.DAL;
+using CDAppMvc.Mapping;
+using CDAppMvc.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,6 +22,9 @@ namespace CDAppMvc
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddScoped<ICategoriesService, CategoriesService>();
+            builder.Services.AddScoped<CategoryMapper>();
 
             var app = builder.Build();
 
